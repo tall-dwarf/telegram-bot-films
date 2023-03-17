@@ -35,8 +35,8 @@ export class OscarYearCommand extends Command{
 
             {
                 buttonType: "callback",
-                buttonText: "Лучший анимационный фильм фильм",
-                handlerName: "oscar.best-anim",
+                buttonText: "Лучший анимационный фильм",
+                handlerName: "oscar.best-mult",
               },
             
               {

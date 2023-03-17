@@ -1,13 +1,18 @@
 import ServiceBase from "./service.base";
 import { IService } from "./service.iterface";
-import { Film } from "@prisma/client";
+import { Film, CultFilm, Nominal } from "@prisma/client";
 import { ArrayHelper } from "../helpers/helper.array";
 
 export default class ServiceFilm extends ServiceBase implements IService<Film> {
   public async getRandomElements(count: number) {
     const film = (await this.prisma
-      .$queryRaw`SELECT * FROM Film ORDER BY rand() LIMIT count;`) as Film;
+      .$queryRaw`SELECT * FROM Film ORDER BY rand() LIMIT 1;`) as Film;
     return film;
+  }
+
+  public async getRandomCultFilm(): Promise<CultFilm>{
+    const films = await this.prisma.$queryRaw`SELECT * FROM CultFilm ORDER BY rand() LIMIT 1;`  as Promise<CultFilm>[]
+    return films[0]
   }
 
   public async getFilmsByGenr(genrId: number) {
@@ -35,5 +40,9 @@ export default class ServiceFilm extends ServiceBase implements IService<Film> {
   public async customQuery<T>(query: string) {
     const film = (await this.prisma.$queryRaw`${query}`) as T;
     return film;
+  }
+
+  public async getOscarFilms(nominations: Nominal, year: number){
+    return await this.prisma.oscarFilm.findFirst({where: {nominations: nominations, year: year }})
   }
 }

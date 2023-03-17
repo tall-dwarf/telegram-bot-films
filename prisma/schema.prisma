@@ -16,14 +16,14 @@ model CultFilm {
   id    Int     @id @default(autoincrement())
   img String  
   name  String
-  descriptions String
+  descriptions String @db.Text
   raiting String
 }
 
 model Film{
   id    Int     @id @default(autoincrement())
   name  String
-  descriptions String
+  descriptions String @db.Text
   raiting String
   img String  
   genres Genres[]
@@ -31,6 +31,27 @@ model Film{
 
 model Genres{
   id    Int     @id @default(autoincrement())
-  name  String
+  name  String 
   films Film[]
+}
+
+
+
+model OscarFilm{
+  id    Int     @id @default(autoincrement())
+  name  String
+  descriptions String @db.Text
+  raiting String
+  img String  
+  year Int
+  nominations Nominal
+}
+
+enum Nominal{
+  BEST_FILM
+  BEST_MULTFILM
+  BEST_VISUAL_EFFECTS
+  BEST_MONTAGE
+
+
 }

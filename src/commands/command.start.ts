@@ -14,6 +14,8 @@ export class StartCommand extends Command {
   }
 
   private startHandler(ctx: IBotContext) {
+    // ctx.reply("awdawd")
+
     
     ctx.replyWithPhoto(Input.fromURL("https://i.imgur.com/VDqYVl.jpg"), {
       caption: "Выберите интересующую вас категорию",

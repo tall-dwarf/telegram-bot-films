@@ -21,8 +21,9 @@ export class CultFilmCommand extends Command {
 
   public async cultFilm(ctx: IBotContext) {
     const filmService = new ServiceFilm();
-    const film = await filmService.getRandomElements(1)
-    
+    const film = await filmService.getRandomCultFilm()
+    console.log(film);
+  
     ctx.replyWithPhoto(Input.fromURL(film?.img || ""), {
       caption: `<strong>${film.name} Рейтинг ${film?.raiting}</strong> ${film?.descriptions}`,
       parse_mode: "HTML",

@@ -1,5 +1,4 @@
 import dotenv from 'dotenv';
-import { Telegraf } from "telegraf"
 import {Bot} from "./src/app"
 dotenv.config()
 

@@ -22,6 +22,26 @@ export class OscarCommand extends Command {
         buttonText: "2022 год",
         handlerName: "oscar.2022",
       },
+      {
+        buttonType: "callback",
+        buttonText: "2018 год",
+        handlerName: "oscar.2018",
+      },
+      {
+        buttonType: "callback",
+        buttonText: "2021 год",
+        handlerName: "oscar.2021",
+      },
+      {
+        buttonType: "callback",
+        buttonText: "2020 год",
+        handlerName: "oscar.2020",
+      },
+      {
+        buttonType: "callback",
+        buttonText: "2019 год",
+        handlerName: "oscar.2019",
+      },
     ];
   }
 }
